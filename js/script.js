@@ -2,7 +2,7 @@ var searchTerm = '';
 
 $(document).ready(function() {
   console.log('document ready!!!');
-  
+
     document.getElementById('search-bar').onkeypress = function(e) {
         var event = e || window.event;
         var charCode = event.which || event.keyCode;
@@ -24,7 +24,7 @@ $(document).ready(function() {
 
 function fetchMovieData() {
     console.log('Fetching MetaData. . . ');
-    $.getJSON("http://www.omdbapi.com/?t="+searchTerm+"&y=&plot=short&r=json", function(movie) {
+    $.getJSON("https://www.omdbapi.com/?t="+searchTerm+"&y=&plot=short&r=json", function(movie) {
         console.log(movie);
       console.log('Fetched');
       $( '.search-wrap' ).addClass('active');
