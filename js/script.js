@@ -1,6 +1,7 @@
 var searchTerm = '';
 
 $(document).ready(function() {
+  console.log('document ready!!!');
     /*
     $( ' #search-bar ' ).on('focus',function(){
       $( '.search-wrap' ).addClass('active');
