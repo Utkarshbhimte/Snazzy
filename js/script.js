@@ -2,13 +2,7 @@ var searchTerm = '';
 
 $(document).ready(function() {
   console.log('document ready!!!');
-    /*
-    $( ' #search-bar ' ).on('focus',function(){
-      $( '.search-wrap' ).addClass('active');
-      $( '#card' ).addClass('active');
-    });
-
-    */
+  
     document.getElementById('search-bar').onkeypress = function(e) {
         var event = e || window.event;
         var charCode = event.which || event.keyCode;
