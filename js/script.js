@@ -20,7 +20,12 @@ $(document).ready(function() {
             return false;
         }
     }
-
+    $('#logo').on('click', function() {
+      console.log('logo clicked');
+      searchTerm = $('#search-bar').val().toUpperCase();
+      console.log('user asked for "' + searchTerm + '"');
+      fetchMovieData();
+    });
 });
 
 function fetchMovieData() {
