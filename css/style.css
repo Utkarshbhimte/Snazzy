@@ -128,6 +128,9 @@ body {
 }
 
 .search-wrap .back-btn {
+  background-size: cover;
+  background-position: -3px;
+  background-image: url(../images/back.png);
   position: fixed;
   background-color: white;
   height: 40px;
