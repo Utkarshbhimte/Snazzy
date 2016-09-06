@@ -1,0 +1,153 @@
+html, body
+  height: 100%
+body
+  background-color: #f5f5f5
+  color: white
+
+/* -------------------------
+      Card ----------------*/
+#card
+  display: flex
+  z-index: 1
+  background-color: white
+  opacity: 0
+  transition: all .3s ease-in-out
+  height: 0px
+  margin-top: 50px
+  color: #212121
+  overflow: hidden
+  #poster
+    background:
+      color: #212121
+      size: cover
+      repeat: no-repeat
+    height: 100%
+    width: 30%
+    min-width: 220px
+  #content
+    padding: 1em 1.5em
+    width: inherit
+    h3
+      margin-bottom: -2px
+    .m-data
+      color: transparentize(black, .6)
+    span
+      strong
+        font-weight: 700
+    p
+      margin-bottom: 10px !important
+    hr
+      margin: 5px
+    .dl-btn
+      text-transform: none
+    h5
+      margin-bottom: 0px
+  &.active
+    opacity: 1
+    height: 55vh
+
+@media (max-width: 550px)
+  #card
+    padding: 0
+    margin: 0
+    font-size: 9px
+    #poster
+      height: 100%
+      width: 30%
+      min-width: 180px
+      background-color: transparentize(black, .3)
+      background-blend-mode: overlay
+      z-index: 1
+    #content
+      z-index: 2
+      padding: 1em 10px
+      width: inherit
+      box-shadow: -5px 0px 10px -6px rgba(0,0,0,1)
+      background-color: #f5f5f5
+      h3
+        font-size: 30px
+      .m-data
+        color: transparentize(black, .6)
+      span
+        strong
+          font-weight: 700
+      p
+        margin: 20px 0 20px 0 !important
+      hr
+        margin: 5px
+      .dl-btn
+        text-transform: none
+      h5
+        margin-bottom: 0px
+    &.active
+      opacity: 1
+      height: 85vh
+
+/* -------------------------
+      Header ----------------*/
+.search-wrap
+  padding-top: 30vh
+  text-align: center
+  background-color: #212121
+  height: 20vh
+  transition: all .3s ease-in-out
+  z-index: 3
+  .back-btn
+    position: fixed
+    background-color: white
+    height: 40px
+    width: 40px
+    border-radius: 50%
+    transition: all 1s ease-in-out
+    opacity: 0
+    top: 5vh
+    left: -5vw
+  h1
+    display: block
+    opacity: 1
+    font-size: 72px
+    z-index: 0
+    transition: all .2s ease
+  input
+    position: absolute
+    background-color: white
+    margin-left: -42%
+    color: #212121
+    width: 80%
+    font-size: 18px
+    padding: 8px 24px
+    border: none
+    outline: none
+    transition: all .5s ease-in-out
+    top: 55vh
+    z-index: 2
+    &:hover
+      box-shadow: none
+  &.active
+    height: 15vh
+    padding: 0
+    .back-btn
+      opacity: 1
+      left: 5vw
+    h1
+      opacity: 0
+    input
+      top: 5vh
+
+@media (max-width: 550px)
+  .search-wrap
+    height: 20vh
+    min-height: 80px
+    h1
+      font-size: 72px
+    input
+      margin-left: -47%
+      top: 55vh
+    &.active
+      height: 15vh
+      .back-btn
+        left: 5vw
+      input
+        margin-left: -28%
+        width: 60%
+        top: 5vh
