@@ -52,8 +52,8 @@ function fetchMovieData(searchTerm) {
 function fetchSearchResults(searchTerm) {
     console.log('Fetching Search Results . . ');
 
+    $('#card').removeClass('active');
     $('.search-wrap').addClass('active');
-    $('#results-wrap').css('display', 'none');
     $('#results-wrap').html('');
 
     $.getJSON('https://www.omdbapi.com/?s=' + searchTerm + '&type=movie', function(SearchResult) {
