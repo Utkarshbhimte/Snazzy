@@ -82,6 +82,51 @@ body
     &.active
       opacity: 1
       height: 85vh
+/* -------------------------
+      Search Results ----------------*/
+#results-wrap
+  height: 75%
+  display:none
+  align-items: center
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: space-around
+  margin: 1em
+  .movieThumbnail
+    display: flex
+    justify-content: center
+    align-items:flex-end
+    height:300px
+    width: 200px
+    color: #FFF
+    overflow:hidden
+    transition: all .3s ease-in-out
+    cursor:pointer
+    box-shadow: 0px 10px 20px -5px #c3c3c3
+    margin:1em
+    background:
+      size: cover
+      repeat: no-repeat
+    span
+      display:block
+      background-color: white
+      padding: 10px
+      font-size: 14px
+      transition: all .3s ease-in-out
+      margin-bottom: -2.5em
+      opacity: 0
+      color:#212121
+      width:100%
+    &:hover
+      transform: scale(1.05)
+      background:
+        transition: all .3s ease-in-out
+        color: transparentize(black, .5)
+        blend-mode: overlay
+      span
+        transition: all .3s ease-in-out
+        opacity: 1
+        margin-bottom: 0em
 
 /* -------------------------
       Header ----------------*/
