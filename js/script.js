@@ -26,11 +26,15 @@ $(document).ready(function() {
 
 function fetchMovieData(searchTerm) {
     console.log('Fetching MetaData. . . ');
+    $('#results-wrap').css('display', 'none');
+
     $.getJSON("https://www.omdbapi.com/?t=" + searchTerm + "&y=&plot=short&r=json", function(movie) {
+
         console.log(movie);
         console.log('Fetched');
+
         $('.search-wrap').addClass('active');
-        $( '#card' ).addClass('active');
+        $('#card').addClass('active');
         $('#movieTitle').html(movie.Title);
         $('#movieYear').html(movie.Year);
         $('#movieGenre').html(movie.Genre);
@@ -39,6 +43,7 @@ function fetchMovieData(searchTerm) {
         $('#movieDirector').html(movie.Director);
         $('#movieCast').html(movie.Actors);
         $('#poster').css('background-image', 'url(' + movie.Poster + ')');
+
         console.log(movie.Poster);
         console.log(movie.Title);
     });
@@ -46,36 +51,45 @@ function fetchMovieData(searchTerm) {
 
 function fetchSearchResults(searchTerm) {
     console.log('Fetching Search Results . . ');
+
     $('.search-wrap').addClass('active');
+    $('#results-wrap').css('display', 'none');
     $('#results-wrap').html('');
+
     $.getJSON('https://www.omdbapi.com/?s=' + searchTerm + '&type=movie', function(SearchResult) {
 
         console.log('got the results');
         console.log('the whole Search JSON :');
         console.log(SearchResult);
-        console.log('No of Results'+SearchResult.Search.length);
+        console.log('No of Results' + SearchResult.Search.length);
 
         if (SearchResult.Search.length < 2) {
-          fetchMovieData(searchTerm);
-        }else {
+            fetchMovieData(searchTerm);
+        } else {
 
-          $('#results-wrap').css('display', 'flex');
+            $('#results-wrap').css('display', 'flex');
 
-          $.each(SearchResult.Search, function(index, movie) {
-              console.log(movie.Title);
-              console.log(movie.Poster);
+            $.each(SearchResult.Search, function(index, movie) {
+                console.log(movie.Title);
+                console.log(movie.Poster);
 
-              if (movie.Poster =="N/A") {
-                console.log('no way joze');
-                return false;
-              }
+                if (movie.Poster == "N/A") {
+                    console.log('no way joze');
+                    return false;
+                }
 
-              $('<div class="movieThumbnail"><span>' + movie.Title + ' [' + movie.Year + ']</span></div>').appendTo("#results-wrap");
+                $('<div class="movieThumbnail"><span>' + movie.Title + ' [' + movie.Year + ']</span></div>').appendTo("#results-wrap");
+                $(".movieThumbnail").eq(index).css('background-image', 'url(' + movie.Poster + ')');
 
-              $(".movieThumbnail").eq(index).css('background-image', 'url(' + movie.Poster + ')');
 
-          });
+            });
 
+            $('.movieThumbnail').each(function(index, el) {
+              setTimeout(function () {
+                console.log('done');
+                $('.movieThumbnail').eq(index).addClass('done');
+              }, 300 * index);
+            });
         }
 
 
